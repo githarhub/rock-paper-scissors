@@ -7,9 +7,11 @@ function getComputerChoice() {
     if (rpsNumber <= 0.3333333333333333) {
         return "rock";
     }
+
     else if (rpsNumber > 0.3333333333333333 && rpsNumber <= 0.6666666666666666) {
         return "paper";
     }
+
     else {
         return "scissors";
     }
@@ -29,6 +31,7 @@ function getHumanChoice() {
             console.log(userInput);
             return userInput;
         }
+
         else {
             alert("Type only one of rock, paper or scissors");
         }
@@ -46,6 +49,44 @@ function playRound(humanChoice, computerChoice) {
     if ( humanChoice == computerChoice){
         // do not increment both score and log tie
         console.log("Tie");
+    }
 
+    // check if human choose rock
+    else if (humanChoice == "rock") {
+        if (computerChoice == "scissors") {
+            console.log("Human Win")
+            humanScore += 1;
+        }
+
+        else {
+            console.log("Computer Win")
+            computerScore += 1;
+        }
+    }
+
+    // check if human choose paper
+    else if (humanChoice == "paper") {
+        if (computerChoice == "rock") {
+            console.log("Human Win")
+            humanScore += 1;
+        }
+
+        else {
+            console.log("Computer Win")
+            computerScore += 1;
+        }
+    }
+
+    // check if human choose scissor 
+    else {
+        if (computerChoice == "paper") {
+            console.log("Human Win")
+            humanScore += 1;
+        }
+
+        else {
+            console.log("Computer Win")
+            computerScore += 1;
+        }
     }
 }
