@@ -54,12 +54,12 @@ function playRound(humanChoice, computerChoice) {
     // check if human choose rock
     else if (humanChoice == "rock") {
         if (computerChoice == "scissors") {
-            console.log("Human Win")
+            console.log("Human Win");
             humanScore += 1;
         }
 
         else {
-            console.log("Computer Win")
+            console.log("Computer Win");
             computerScore += 1;
         }
     }
@@ -67,12 +67,12 @@ function playRound(humanChoice, computerChoice) {
     // check if human choose paper
     else if (humanChoice == "paper") {
         if (computerChoice == "rock") {
-            console.log("Human Win")
+            console.log("Human Win");
             humanScore += 1;
         }
 
         else {
-            console.log("Computer Win")
+            console.log("Computer Win");
             computerScore += 1;
         }
     }
@@ -85,8 +85,34 @@ function playRound(humanChoice, computerChoice) {
         }
 
         else {
-            console.log("Computer Win")
+            console.log("Computer Win");
             computerScore += 1;
         }
     }
 }
+
+
+// created function to play entire game
+function playGame () {
+
+    // play playRound five time
+    for (let i = 0; i < 5; i++) {
+        playRound(getComputerChoice(), getHumanChoice())
+    }
+
+    // check the winner of the game 
+    if (humanScore > computerScore) {
+        alert("Human is the winner of the game.");
+    }
+
+    else if (humanScore < computerScore) {
+        alert("Computer is the winner of the game.");
+    }
+
+    else {
+        alert("There is no winner of the game. Tie!");
+    }
+}
+
+// call the function
+playGame();
