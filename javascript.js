@@ -1,4 +1,7 @@
+// create function that return one of rock paper and scissor 
 function getComputerChoice() {
+
+    // variable that return between 0 and 1 
     let rpsNumber = Math.random();
 
     if (rpsNumber <= 0.3333333333333333) {
