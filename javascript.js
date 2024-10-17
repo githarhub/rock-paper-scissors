@@ -1,7 +1,7 @@
-// create function that return one of rock paper and scissors 
+// create function that return one of rock paper and scissors
 function getComputerChoice() {
 
-    // variable that return between 0 and 1 
+    // variable that return between 0 and 1
     let rpsNumber = Math.random();
 
     if (rpsNumber <= 0.3333333333333333) {
@@ -34,7 +34,18 @@ function getHumanChoice() {
         }
     }
 }
-// global variable that count winner score of human and computer 
+// global variable that count winner score of human and computer
 let humanScore = 0;
 let computerScore = 0;
 
+// create function that check winner and increment winner Score and log winner
+function playRound(humanChoice, computerChoice) {
+
+    // check winner 
+    // check if it is tie
+    if ( humanChoice == computerChoice){
+        // do not increment both score and log tie
+        console.log("Tie");
+
+    }
+}
