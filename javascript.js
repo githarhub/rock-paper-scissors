@@ -34,3 +34,7 @@ function getHumanChoice() {
         }
     }
 }
+// global variable that count winner score of human and computer 
+let humanScore = 0;
+let computerScore = 0;
+
