@@ -1,4 +1,4 @@
-// create function that return one of rock paper and scissor 
+// create function that return one of rock paper and scissors 
 function getComputerChoice() {
 
     // variable that return between 0 and 1 
@@ -11,7 +11,26 @@ function getComputerChoice() {
         return "paper";
     }
     else {
-        return "scissor";
+        return "scissors";
     }
 
+}
+
+// create function that get one of rock paper scissors input from user
+function getHumanChoice() {
+
+    // loop until user input valid input
+    while (true) {
+        // prompt to user to type valid input
+        let userInput = prompt("Choose one of rock, paper or scissors").toLowerCase();
+
+        // check if user type valid input and if true return and if not alert and ask again
+        if (userInput == "rock" || userInput == "paper" || userInput == "scissors") {
+            console.log(userInput);
+            return userInput;
+        }
+        else {
+            alert("Type only one of rock, paper or scissors");
+        }
+    }
 }
