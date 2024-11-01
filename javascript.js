@@ -22,7 +22,7 @@ function getComputerChoice() {
         return "scissors";
     }
 
-}
+};
 
 
 
@@ -39,6 +39,7 @@ function pickAndPlay(pickButton) {
 // global variable that count winner score of human and computer
 let humanScore = 0;
 let computerScore = 0;
+let roundsTime = 0;
 
 
 // create function that check winner and increment winner Score and log winner
@@ -89,10 +90,11 @@ function playRound(humanChoice, computerChoice) {
             return "Computer Win";
         }
     }
-}
+};
 
 // append inside of div with class rounds in DOM 
 function showWinner(humanChoice, computerChoice) {
+    roundsTime += 1;
     const computer = document.createElement("div");
     const human = document.createElement("div");
     const winner = document.createElement("div"); 
@@ -106,7 +108,14 @@ function showWinner(humanChoice, computerChoice) {
     divRounds.appendChild(human);
     divRounds.appendChild(computer);
     divRounds.appendChild(winner);
-}
+
+    if (roundsTime % 5 == 0 && roundsTime != 0) {
+        winner.textContent = `Final Winner, ${getWinner}`;
+        divRounds.appendChild(winner);
+        const br = document.createElement("br");
+        divRounds.appendChild(br);
+    };
+};
 
 
 // call the function
