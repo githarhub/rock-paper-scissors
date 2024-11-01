@@ -2,6 +2,7 @@
 const rockButton = document.querySelector(".rock");
 const paperButton = document.querySelector(".paper");
 const scissorsButton = document.querySelector(".scissors");
+const divRounds = document.querySelector(".rounds");
 
 // create function that return one of rock paper and scissors
 function getComputerChoice() {
@@ -30,7 +31,7 @@ function pickAndPlay(pickButton) {
     pickButton.addEventListener("click", () => {
         const humanChoice = pickButton.textContent.toLowerCase();
         const computerChoice = getComputerChoice();
-        playRound(humanChoice, computerChoice);
+        showWinner(humanChoice, computerChoice);
     });
 
 };
@@ -47,71 +48,66 @@ function playRound(humanChoice, computerChoice) {
     // check if it is tie
     if ( humanChoice == computerChoice){
         // do not increment both score and log tie
-        console.log("Tie");
+        return "Tie";
     }
 
     // check if human choose rock
     else if (humanChoice == "rock") {
         if (computerChoice == "scissors") {
-            console.log("Human Win");
             humanScore += 1;
+            return "Human Win";
         }
 
         else {
-            console.log("Computer Win");
             computerScore += 1;
+            return "Computer Win";
         }
     }
 
     // check if human choose paper
     else if (humanChoice == "paper") {
         if (computerChoice == "rock") {
-            console.log("Human Win");
             humanScore += 1;
+            return "Human Win";
         }
 
         else {
-            console.log("Computer Win");
             computerScore += 1;
+            return "Computer Win";
         }
     }
 
     // check if human choose scissor 
     else {
         if (computerChoice == "paper") {
-            console.log("Human Win")
             humanScore += 1;
+            return "Human Win";
         }
 
         else {
-            console.log("Computer Win");
             computerScore += 1;
+            return "Computer Win";
         }
     }
 }
 
+// append inside of div with class rounds in DOM 
+function showWinner(humanChoice, computerChoice) {
+    const computer = document.createElement("div");
+    const human = document.createElement("div");
+    const winner = document.createElement("div"); 
+    // get winner by playing game
+    const getWinner = playRound(humanChoice, computerChoice);
 
-// created function to play entire game
-function playGame () {
+    human.textContent = `Human Choice is ${humanChoice.toUpperCase()}`;
+    computer.textContent = `Computer Choice is ${computerChoice.toUpperCase()}`;
+    winner.textContent = getWinner;
 
-    // play playRound five time
-    for (let i = 0; i < 5; i++) {
-        playRound(getComputerChoice(), getHumanChoice())
-    }
-
-    // check the winner of the game 
-    if (humanScore > computerScore) {
-        alert("Human is the winner of the game.");
-    }
-
-    else if (humanScore < computerScore) {
-        alert("Computer is the winner of the game.");
-    }
-
-    else {
-        alert("There is no winner of the game. Tie!");
-    }
+    divRounds.appendChild(human);
+    divRounds.appendChild(computer);
+    divRounds.appendChild(winner);
 }
+
 
 // call the function
 pickAndPlay(rockButton);
