@@ -1,0 +1,25 @@
+.button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+}
+
+.button-container button {
+    height: 100px;
+    width: 100px;
+    background-color: white;
+    color: #328af6;
+    font-size: large;
+    padding: 0;
+    margin: 0;
+    border-width: 5px;
+    border-radius: 10px;
+    border-color: #328af6;
+    border-style: solid;
+}
+
+.button-container button:active {
+    background-color: #328af6;
+    color: white;
+}
